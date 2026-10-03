@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ERTH & ART</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/doors.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/collection.css">
+<script>document.documentElement.classList.add('js')</script>
+
+<div id="page">
+<header class="nav" id="nav">
+  <a class="brand" href="#map" data-go="map" aria-label="ERTH & ART, back to the map"><img src="img/logo.png" alt="ERTH & ART" width="79" height="36"></a>
+  <nav class="menu" id="menu" aria-label="Main">
+    <a href="#map" data-go="map">Map</a>
+    <a href="#collections" data-go="collections">Collections</a>
+    <a href="#story" data-go="story">The Story</a>
+    <a href="#process" data-go="process">Process</a>
+    <a href="#contact" data-go="contact">Contact</a>
+  </nav>
+  <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button>
+</header>
+
+<main>
+<section class="hero" id="map" aria-label="Map of Morocco with four collection doors">
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <img class="hero-logo" src="img/logo.png" alt="ERTH & ART" width="576" height="262">
+    <h1>Heritage,<br>Reimagined.</h1>
+    <p class="wear">Art you wear</p>
+    <p class="made">Handcrafted in Morocco</p>
+    <p class="hint">Choose a door to enter a collection.</p>
+  </div>
+  <div class="stage" id="stage" role="group" aria-label="Four doors, one for each collection"></div>
+</section>
+
+<section class="rail-sec sec" id="collections" aria-labelledby="railH">
+  <div class="wrap rail-head">
+    <div><p class="eyebrow">Four doors · Four pieces</p><h2 id="railH" class="rv">The <em>collections</em></h2></div>
+    <div class="rail-ctl"><button type="button" data-rail="-1" aria-label="Previous collection">←</button><button type="button" data-rail="1" aria-label="Next collection">→</button></div>
+  </div>
+  <div class="rail" id="rail" aria-label="Collections"></div>
+</section>
+
+<section class="story sec" id="story" aria-labelledby="storyH">
+  <div class="wrap story-grid">
+    <div class="story-media">
+      <div class="arch rv"><img src="img/arch-white.jpg" alt="A man in sunglasses holding open a white jacket patched with woven panels, in front of a carved Moroccan door" width="480" height="640" loading="lazy" data-px="-.06"></div>
+      <div class="sub rv" style="--d:.2s"><img src="img/surf.jpg" alt="Back of a man with curly hair in a blue denim jacket with a painted surfer" width="676" height="955" loading="lazy"></div>
+    </div>
+    <div class="story-txt">
+      <div class="rv"><p class="eyebrow">The Story</p><h2 id="storyH" style="margin-top:18px">Who is <em>Erth?</em></h2></div>
+      <div class="rv"><h3>The brand</h3><p>ERTH &amp; ART is a Moroccan fashion brand that transforms cultural heritage into contemporary wearable art. Every piece is handcrafted, blending tradition with modern design.</p></div>
+      <div class="rv"><h3>Vision</h3><p>To represent Morocco on the global fashion scene through authentic craftsmanship, original design, and timeless storytelling.</p></div>
+      <div class="rv"><h3>Why was Erth created?</h3><p>ERTH was created to preserve Moroccan heritage in a modern way, turning culture, architecture, and craftsmanship into garments that tell meaningful stories.</p></div>
+      <p class="born rv">ERTH was born in the heart of Casablanca's Old Medina, where craftsmanship has been part of everyday life for generations.</p>
+      <p class="big rv">Every piece reflects a story.</p>
+    </div>
+  </div>
+</section>
+
+<section class="process sec" id="process" aria-labelledby="procH">
+  <div class="wrap">
+    <div class="proc-head"><p class="eyebrow rv">Creative process</p><h2 id="procH" class="rv" style="margin-top:18px">From a feeling to a <em>garment</em></h2></div>
+    <div class="tl" id="tl"></div>
+  </div>
+</section>
+
+<section class="philo" id="philosophy" aria-label="Philosophy">
+  <div class="philo-bg" data-px=".08" style="background-image:url(img/sign3.jpg)"></div>
+  <div class="wrap">
+    <p class="pq"><span class="line"><span>Every piece</span></span><span class="line"><span style="--d:.15s">a journey.</span></span></p>
+    <p class="pq b"><span class="line"><span>From idea</span></span><span class="line"><span style="--d:.15s">to reality.</span></span></p>
+    <p class="pq c"><span class="line"><span>Made by hand.</span></span><span class="line"><span style="--d:.15s">With purpose.</span></span></p>
+  </div>
+</section>
+
+<section class="archive sec" id="archive" aria-labelledby="arcH">
+  <div class="wrap">
+    <p class="eyebrow rv">Studio archive</p>
+    <h2 id="arcH" class="rv" style="margin-top:18px">Painted, stitched, <em>reworked</em></h2>
+    <div class="arc-grid" id="arc"></div>
+    <div class="dir rv">
+      <img src="img/directions.jpg" alt="Four men in new denim jackets: black felt with red geometric appliqué, and olive and navy woven patchwork" width="1100" height="529" loading="lazy">
+      <div class="cap"><h3>New directions</h3><p class="eyebrow">Coming next from the studio</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="future sec" id="future" aria-labelledby="futH">
+  <div class="wrap">
+    <div class="fut-top">
+      <h2 id="futH" class="rv">Building the future of Moroccan <em>wearable art.</em></h2>
+      <div class="arch rv"><img src="img/future-arch.jpg" alt="A man seen from behind opening a red woven jacket with a denim Amazigh symbol, against the sea and sky" width="540" height="720" loading="lazy"></div>
+    </div>
+    <div class="fut-line">
+      <article class="rv"><span class="k">Our goal</span><h3>Lead from Morocco</h3><p>To establish ERTH &amp; ART as a leading Moroccan fashion brand that transforms heritage into contemporary wearable art while preserving traditional craftsmanship.</p></article>
+      <article class="rv" style="--d:.1s"><span class="k">Collaborations</span><h3>Make with others</h3><p>Collaborating with artists, craftsmen, designers and cultural institutions to create meaningful collections that celebrate Moroccan creativity.</p></article>
+      <article class="rv" style="--d:.2s"><span class="k">Exhibitions</span><h3>Show the work</h3><p>Presenting the work through fashion exhibitions, cultural events, art festivals and international design fairs.</p></article>
+      <article class="rv" style="--d:.3s"><span class="k">Global markets</span><h3>Carry it abroad</h3><p>Introducing Moroccan craftsmanship to international markets through carefully designed collections that speak a universal design language while staying true to Moroccan roots.</p></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot grain" id="contact">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <img class="foot-logo" src="img/logo.png" alt="ERTH & ART" width="576" height="262" loading="lazy">
+        <p class="foot-tag"><span>Heritage, Reimagined.</span><span>Art you wear.</span><span>Handcrafted in Morocco.</span></p>
+      </div>
+      <dl class="contact">
+        <div><dt>Email</dt><dd>anasmohammadi2020@gmail.com</dd></div>
+        <div><dt>Phone</dt><dd>0703679180</dd></div>
+        <div><dt>Instagram &amp; TikTok</dt><dd>@ERTHANDART</dd></div>
+      </dl>
+    </div>
+    <div class="foot-links">
+      <nav aria-label="Footer">
+        <a href="https://www.instagram.com/erthandart" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@erthandart" target="_blank" rel="noopener">TikTok</a>
+        <a href="mailto:anasmohammadi2020@gmail.com">Contact</a>
+        <a href="#collections" data-go="collections">Collections</a>
+        <a href="#story" data-go="story">Story</a>
+      </nav>
+      <small>© 2026 ERTH &amp; ART · Casablanca, Morocco</small>
+    </div>
+  </div>
+</footer>
+</div>
+
+<div id="cv" role="dialog" aria-modal="true" aria-label="Collection" aria-hidden="true">
+  <div class="cv-bar">
+    <button type="button" class="cv-btn" data-close>← Back to the map</button>
+    <button type="button" class="cv-btn" data-map>The story →</button>
+  </div>
+  <div class="cv-scroll" id="cvScroll"></div>
+</div>
+<div id="portal" aria-hidden="true"><div class="veil"></div><div class="warp"></div></div>
+
+<script src="js/data.js"></script>
+<script src="js/map.js"></script>
+<script src="js/build.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/app.js"></script>
+
+</body></html>

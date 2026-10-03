@@ -1,0 +1,86 @@
+/* ===== doors ===== */
+.door{--w:10.4%;--ar:1.62;position:absolute;width:var(--w);aspect-ratio:1/var(--ar);transform:translate(-50%,-100%);padding:0;border:0;background:none;perspective:760px;z-index:3;
+  filter:drop-shadow(0 10px 12px rgba(0,0,0,.65));
+  transition:transform .9s var(--ease),filter .9s var(--ease),opacity .6s;animation:doorIn 1.6s var(--di,1.2s) var(--ease) both}
+@keyframes doorIn{from{opacity:0;transform:translate(-50%,-92%)}to{opacity:1;transform:translate(-50%,-100%)}}
+.door:hover,.door:focus-visible{transform:translate(-50%,-102.5%) scale(1.16);filter:brightness(1.28) drop-shadow(0 26px 24px rgba(0,0,0,.8)) drop-shadow(0 0 26px var(--glow));z-index:6;outline:none}
+.stage:has(.door:hover) .door:not(:hover),.stage:has(.door:focus-visible) .door:not(:focus-visible){opacity:.5}
+.door:focus-visible .d-sur{outline:2px solid var(--brass);outline-offset:3px}
+.d-sur,.d-op,.d-void,.d-panel{position:absolute}
+.d-sur{inset:0;background:var(--sur);clip-path:var(--sclip,none);border-radius:var(--srad,0)}
+.d-sur::before{content:"";position:absolute;inset:0;background:var(--grain);opacity:.28;mix-blend-mode:multiply}
+.d-op{left:12%;right:12%;top:var(--optop,10%);bottom:0;transform-style:preserve-3d}
+.d-void{inset:0;background:var(--void);clip-path:var(--vclip,none);border-radius:var(--vrad,0);box-shadow:inset 0 0 0 1px rgba(0,0,0,.6)}
+.d-void::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 50% 100%,var(--glow),transparent 72%);opacity:.38;transition:opacity .9s}
+.door:hover .d-void::after,.door:focus-visible .d-void::after{opacity:1}
+.d-panel{top:0;bottom:0;width:50%;background:var(--wood);transition:transform 1s var(--ease);backface-visibility:visible;box-shadow:inset 0 0 0 1px rgba(0,0,0,.55)}
+.d-panel::before{content:"";position:absolute;inset:0;background:var(--studs);opacity:.9}
+.d-panel::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.22;mix-blend-mode:multiply}
+.d-panel.l{left:0;transform-origin:left center;border-top-left-radius:var(--ax,100%) var(--ay,0);clip-path:var(--lclip,none)}
+.d-panel.r{right:0;transform-origin:right center;border-top-right-radius:var(--ax,100%) var(--ay,0);clip-path:var(--rclip,none);background:var(--wood2,var(--wood))}
+.d-panel.l::before{background-position:right}
+.door:hover .d-panel.l,.door:focus-visible .d-panel.l{transform:rotateY(-17deg)}
+.door:hover .d-panel.r,.door:focus-visible .d-panel.r{transform:rotateY(17deg)}
+.door-clone .d-panel{transition:transform 1.05s .12s cubic-bezier(.5,0,.2,1)!important}
+.door-clone.go .d-panel.l{transform:rotateY(-108deg)!important}
+.door-clone.go .d-panel.r{transform:rotateY(108deg)!important}
+.door-clone.go .d-void::after{opacity:1;transition-duration:1s}
+.door-clone{animation:none!important;filter:none!important;perspective:900px}
+.d-tag{position:absolute;left:50%;top:calc(100% + 7px);transform:translateX(-50%);font:600 8.5px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;white-space:nowrap;color:var(--ivory);text-shadow:0 1px 6px #000;pointer-events:none}
+.door-clone .d-tag,.door-clone .d-card,.door-clone .d-spark{display:none}
+.d-spark{position:absolute;inset:-20% -30% 10%;pointer-events:none;opacity:0;transition:opacity .6s}
+.door:hover .d-spark,.door:focus-visible .d-spark{opacity:1}
+.d-spark i{position:absolute;left:var(--x);bottom:0;width:3px;height:3px;border-radius:50%;background:var(--glow);box-shadow:0 0 8px var(--glow);animation:spark 3.4s var(--t) linear infinite}
+@keyframes spark{from{transform:translateY(0);opacity:0}15%{opacity:1}to{transform:translateY(-190px) translateX(var(--dx));opacity:0}}
+.d-card{position:absolute;top:8%;width:max-content;max-width:210px;opacity:0;pointer-events:none;transition:opacity .6s var(--ease),transform .8s var(--ease);text-align:left;text-shadow:0 2px 14px #000}
+.d-card.r{left:calc(100% + 18px);transform:translateX(-10px)}
+.d-card.l{right:calc(100% + 18px);transform:translateX(10px);text-align:right}
+.door:hover .d-card,.door:focus-visible .d-card{opacity:1;transform:none}
+.d-card b{display:block;font:300 clamp(1.3rem,2.2vw,2rem)/1 var(--serif);letter-spacing:.12em;color:var(--ivory)}
+.d-card em{display:block;margin-top:8px;font:italic 400 1.05rem/1.2 var(--serif);color:var(--bone);text-transform:uppercase;letter-spacing:.1em}
+.d-card small{display:block;margin-top:10px;font:600 .6rem/1 var(--sans);letter-spacing:.34em;color:var(--brass)}
+.d-card::before{content:"";display:block;width:34px;height:1px;background:var(--brass);margin-bottom:12px}
+.d-card.l::before{margin-left:auto}
+.leader{stroke:rgba(181,154,103,.5);stroke-width:1;stroke-dasharray:3 4}
+
+/* Casablanca: concrete frame, stepped deco crown, deep red doors, green inlay */
+.d-casa{--sur:linear-gradient(180deg,#d7d1c5,#aaa396 70%,#8f897d);--sclip:polygon(0 100%,0 9%,6% 9%,6% 5%,12% 5%,12% 0,88% 0,88% 5%,94% 5%,94% 9%,100% 9%,100% 100%);--optop:15%;--void:linear-gradient(#0b0b0a,#2a1a15);
+  --wood:repeating-linear-gradient(90deg,rgba(0,0,0,.28) 0 2px,transparent 2px 25%),linear-gradient(180deg,#8e3431,#5e1f1e);--studs:radial-gradient(circle,#0b0b0a 0 1.6px,transparent 2.2px) 0 0/16% 11%;--glow:#d9503f;--ax:0;--ay:0}
+.d-casa .d-sur::after{content:"";position:absolute;inset:7% 5% 0;border:2px solid var(--moss);border-bottom:0;opacity:.85}
+.d-casa .d-sur{background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 1px,transparent 1px 14%),var(--sur)}
+/* Ouarzazate: rammed-earth kasbah, crenellated crown, horseshoe arch, gold studs */
+.d-ouar{--sur:linear-gradient(180deg,#c68b62,#9a5f3f 60%,#6e3f27);--sclip:polygon(0 100%,0 0,12% 0,12% 8%,22% 8%,22% 0,34% 0,34% 8%,44% 8%,44% 0,56% 0,56% 8%,66% 8%,66% 0,78% 0,78% 8%,88% 8%,88% 0,100% 0,100% 100%);--optop:22%;--void:linear-gradient(#150c07,#3a2113);
+  --wood:repeating-linear-gradient(90deg,rgba(0,0,0,.25) 0 1px,transparent 1px 12%),linear-gradient(180deg,#5b3420,#3a2013);--studs:radial-gradient(circle,#e0b45a 0 1.7px,transparent 2.3px) 0 0/22% 9%;--glow:#e8a73d;--ax:100%;--ay:30%;--vrad:50% 50% 0 0/30% 30% 0 0}
+.d-ouar .d-sur::after{content:"";position:absolute;left:0;right:0;top:11%;height:7%;background:linear-gradient(45deg,transparent 45%,rgba(50,24,12,.6) 46% 54%,transparent 55%) 0 0/9px 9px,linear-gradient(-45deg,transparent 45%,rgba(50,24,12,.6) 46% 54%,transparent 55%) 0 0/9px 9px}
+/* Essaouira: whitewashed wall, round arch, sea-blue planks, brass ring */
+.d-essa{--sur:linear-gradient(180deg,#e4e2da,#c9cac4 70%,#a9aeb0);--srad:50% 50% 0 0/20% 20% 0 0;--optop:15%;--void:linear-gradient(#0a2530,#14485a);
+  --wood:repeating-linear-gradient(90deg,rgba(0,0,0,.2) 0 1px,transparent 1px 16%),linear-gradient(180deg,#2d78a6,#1c4f78);--wood2:repeating-linear-gradient(90deg,rgba(0,0,0,.2) 0 1px,transparent 1px 16%),linear-gradient(180deg,#2a8aa0,#1c5d7c);--studs:radial-gradient(circle,#79d1c9 0 1.4px,transparent 2px) 0 0/50% 7%;--glow:#6fe0d2;--ax:100%;--ay:24%;--vrad:50% 50% 0 0/24% 24% 0 0}
+.d-essa .d-panel.l::before{background:var(--studs),radial-gradient(circle at 88% 56%,transparent 0 3px,#c9a96a 3.5px 5px,transparent 5.5px)}
+.d-essa .d-sur::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5%;background:#cdb88f}
+/* Fire: charred pointed arch with ember rim */
+.d-fire{--sur:linear-gradient(180deg,#2a1b15,#150f0c);--sclip:polygon(0 100%,0 42%,5% 30%,15% 17%,30% 6%,50% 0,70% 6%,85% 17%,95% 30%,100% 42%,100% 100%);--optop:14%;--void:linear-gradient(#050303,#43110a);--vclip:polygon(0 100%,0 40%,10% 27%,26% 12%,50% 0,74% 12%,90% 27%,100% 40%,100% 100%);
+  --wood:repeating-linear-gradient(90deg,rgba(255,80,20,.08) 0 1px,transparent 1px 20%),linear-gradient(180deg,#1b1210,#0a0605 55%,#6a1d0b);--studs:radial-gradient(circle,#c9953a 0 1.6px,transparent 2.2px) 0 0/22% 10%;--glow:#ff6a2a;
+  --lclip:polygon(0 100%,0 40%,20% 25%,52% 8%,100% 0,100% 100%);--rclip:polygon(0 0,48% 8%,80% 25%,100% 40%,100% 100%,0 100%)}
+.d-fire .d-sur{box-shadow:inset 0 0 0 2px rgba(255,100,40,.0)}
+.d-fire .d-sur::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 100%,rgba(255,90,20,.45),transparent 70%);animation:flicker 2.6s ease-in-out infinite alternate}
+@keyframes flicker{from{opacity:.55}to{opacity:1}}
+
+@media (max-width:700px){
+  .door{--w:14.6%;--ar:1.5}
+  .d-tag{font-size:7px;letter-spacing:.16em}
+  .d-card{display:none}
+}
+@media (hover:none){.d-card{display:none}.door:hover{transform:translate(-50%,-100%)}}
+
+/* ===== portal transition ===== */
+#portal{position:fixed;inset:0;z-index:100;pointer-events:none;visibility:hidden;opacity:1;transition:opacity .7s ease}
+#portal.on{visibility:visible}
+#portal.clear{opacity:0}
+.veil{position:absolute;inset:0;background:#000;opacity:0;transition:opacity .9s .05s ease}
+#portal.on .veil{opacity:.94}
+#portal .door-clone{position:fixed;margin:0}
+.warp{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.warp i{position:absolute;left:50%;top:50%;width:3px;height:3px;border-radius:50%;background:var(--wg,#e8c88a);opacity:0;box-shadow:0 0 10px var(--wg,#e8c88a)}
+#portal.on .warp i{animation:warp 1.15s calc(var(--i)*.03s + .25s) cubic-bezier(.5,0,.8,.5) both}
+@keyframes warp{from{transform:translate(-50%,-50%) rotate(var(--a)) translateX(0) scaleX(1);opacity:0}30%{opacity:.9}to{transform:translate(-50%,-50%) rotate(var(--a)) translateX(var(--r)) scaleX(14);opacity:0}}
+@media (max-width:700px){.warp i:nth-child(n+14){display:none}}
